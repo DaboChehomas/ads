@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Honor Equity Industries LLC - Administrative & Support Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 180px 2rem 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        section {
+            padding: 100px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            text-align: justify;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #667eea;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            color: #1e3c72;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .advantages {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .advantages .section-title,
+        .advantages .section-subtitle {
+            color: white;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .advantage-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: background 0.3s;
+        }
+
+        .advantage-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .advantage-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .advantage-number {
+            background: white;
+            color: #667eea;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .process {
+            background: #f8f9fa;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .step::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .contact-section {
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            font-size: 1.8rem;
+        }
+
+        .info-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .info-item a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                flex-direction: column;
+            }
+
+            .step::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -40px;
+                transform: translateX(50%);
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">CREATIVE HONOR</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#advantages">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Premier Administrative & Support Solutions</h1>
+            <p>Empowering businesses with comprehensive support services, waste management excellence, and strategic administrative solutions tailored to drive operational efficiency and sustainable growth</p>
+            <a href="#contact" class="cta-button">Partner With Us Today</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-subtitle">Building partnerships through excellence and innovation</p>
+        <div class="about-content">
+            <p>Creative Honor Equity Industries LLC stands as a trusted leader in providing comprehensive administrative and support services throughout Connecticut and beyond. Based in Riverton, we specialize in delivering tailored solutions that address the complex operational needs of modern businesses across diverse industries. Our commitment extends to environmental stewardship through advanced waste management and remediation services that protect communities while supporting business continuity.</p>
+            
+            <p style="margin-top: 1.5rem;">With years of dedicated experience, our team combines technical expertise with personalized service delivery to ensure every client receives solutions precisely matched to their unique operational requirements. We understand that efficient administrative support and responsible waste management are foundational to business success, which is why we've built our reputation on reliability, compliance excellence, and measurable results.</p>
+            
+            <p style="margin-top: 1.5rem;">Our approach integrates cutting-edge methodologies with proven best practices, enabling us to serve businesses at non-commercial sites with the same level of professional excellence as large-scale operations. From document management and regulatory compliance to comprehensive waste remediation projects, we handle every aspect with meticulous attention to detail and unwavering dedication to client satisfaction.</p>
+            
+            <p style="margin-top: 1.5rem;">At Creative Honor Equity Industries, we believe that successful partnerships are built on transparency, consistent communication, and shared goals. Our client-centric philosophy ensures that we not only meet expectations but consistently exceed them through proactive problem-solving and continuous service optimization.</p>
+            
+            <p style="margin-top: 1.5rem;">Whether you're seeking to streamline administrative operations, ensure environmental compliance, or implement sustainable waste management practices, our team brings the knowledge, resources, and commitment necessary to transform challenges into opportunities for organizational growth and operational excellence.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">Our Core Services</h2>
+        <p class="section-subtitle">Comprehensive solutions designed for your success</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Administrative Support Services</h3>
+                <p>Our administrative support division provides end-to-end business process management, including document control, regulatory compliance assistance, and operational coordination. We streamline your administrative workflows through digital transformation strategies, ensuring accuracy, efficiency, and seamless integration with your existing systems. Our experienced professionals handle everything from routine administrative tasks to complex compliance documentation, allowing your team to focus on core business objectives while we manage the administrative infrastructure that keeps operations running smoothly.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">♻️</div>
+                <h3>Waste Management & Remediation</h3>
+                <p>We deliver comprehensive environmental solutions encompassing waste assessment, collection, treatment, and disposal services that meet the highest regulatory standards. Our remediation specialists employ advanced techniques to address contamination issues, restore site integrity, and ensure long-term environmental sustainability. From hazardous material handling to sustainable waste reduction programs, we provide the expertise and resources necessary to maintain compliance while minimizing environmental impact and protecting public health across all service locations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Business Support Solutions</h3>
+                <p>Our business support services encompass strategic consulting, operational optimization, and resource management tailored to non-commercial and specialized business environments. We provide facility coordination, vendor management, and project support services that enhance operational efficiency and reduce overhead costs. By serving as an extension of your team, we bring specialized knowledge and dedicated support that enables business growth without the burden of expanding internal administrative infrastructure, delivering measurable value through cost-effective, scalable solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages" class="advantages">
+        <h2 class="section-title">What Sets Us Apart</h2>
+        <p class="section-subtitle">The competitive advantages that make us your ideal partner</p>
+        <div class="advantages-grid">
+            <div class="advantage-card">
+                <h3><span class="advantage-number">1</span> Proven Expertise & Reliability</h3>
+                <p>Our track record speaks volumes about our commitment to excellence. With extensive experience across administrative support and environmental services, we bring deep industry knowledge and proven methodologies to every engagement. Our team consists of certified professionals who stay current with evolving regulations and best practices, ensuring that your operations benefit from the most advanced and compliant solutions available in the market today.</p>
+            </div>
+            <div class="advantage-card">
+                <h3><span class="advantage-number">2</span> Customized Solutions Approach</h3>
+                <p>We recognize that every business has unique needs, challenges, and goals. Rather than applying one-size-fits-all solutions, we invest time in understanding your specific operational requirements and develop customized strategies that align perfectly with your objectives. This personalized approach ensures maximum efficiency, cost-effectiveness, and seamless integration with your existing processes, delivering results that truly matter to your business success.</p>
+            </div>
+            <div class="advantage-card">
+                <h3><span class="advantage-number">3</span> Comprehensive Service Integration</h3>
+                <p>Unlike providers offering fragmented services, we deliver fully integrated solutions that address multiple aspects of your operational needs simultaneously. From administrative coordination to environmental compliance, our holistic approach eliminates the complexity of managing multiple vendors while ensuring consistency, accountability, and streamlined communication. This integration reduces administrative burden, minimizes risks, and creates synergies that enhance overall operational performance and business outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <h2 class="section-title">Our Proven Process</h2>
+        <p class="section-subtitle">A systematic approach to delivering exceptional results</p>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Discovery & Assessment</h3>
+                <p>We begin every engagement with comprehensive consultation to understand your specific needs, challenges, and objectives. Our team conducts thorough operational assessments, reviews existing processes, and identifies opportunities for improvement. This foundation ensures that our recommendations and solutions are precisely tailored to deliver maximum value and align perfectly with your business goals and compliance requirements.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Strategic Planning & Implementation</h3>
+                <p>Based on our assessment findings, we develop detailed action plans with clear timelines, resource allocations, and measurable milestones. Our experienced project managers coordinate all aspects of implementation, ensuring seamless execution with minimal disruption to your operations. We maintain transparent communication throughout, providing regular updates and promptly addressing any concerns to guarantee successful project delivery.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Ongoing Support & Optimization</h3>
+                <p>Our commitment extends far beyond initial implementation. We provide continuous monitoring, performance evaluation, and proactive optimization to ensure sustained excellence. Through regular reviews and feedback integration, we identify enhancement opportunities and adapt our services to evolving business needs. This long-term partnership approach ensures that you consistently receive maximum value and maintain competitive advantages in your operational efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's discuss how we can support your business success</p>
+        <div class="contact-container">
+            <div class="contact-form">
+                <h3 style="margin-bottom: 2rem; color: #1e3c72; font-size: 1.8rem;">Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" placeholder="Your organization">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How Can We Help You?</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project requirements or questions..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Submit Inquiry</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <div class="info-item">
+                    <h3><span class="info-icon">📍</span> Our Location</h3>
+                    <p>142 Riverton Road<br>Riverton, Connecticut 06065-1201<br>United States</p>
+                </div>
+                <div class="info-item">
+                    <h3><span class="info-icon">✉️</span> Email Us</h3>
+                    <p>For inquiries, quotes, or support:<br><a href="mailto:info@creativehonorequityindustries.pro">info@creativehonorequityindustries.pro</a></p>
+                </div>
+                <div class="info-item">
+                    <h3><span class="info-icon">🕒</span> Business Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 6:00 PM EST<br>Saturday: 9:00 AM - 2:00 PM EST<br>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Creative Honor Equity Industries LLC. All Rights Reserved.</p>
+        <p>Administrative and Support Services | Waste Management & Remediation</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Serving businesses throughout Connecticut with excellence and integrity</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will respond to your message within 24 business hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
